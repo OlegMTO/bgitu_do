@@ -100,34 +100,34 @@ erDiagram
 
 ```mermaid
 flowchart TD
-    %% Client Layer
-    Browser["Web Browser"]:::frontend
+    %% Клиентский слой / Client Layer
+    Browser["Веб-браузер / Web Browser"]:::frontend
 
-    %% Web Server Layer
-    WebServer["Apache/Nginx + PHP-FPM"]:::server
+    %% Веб-сервер / Web Server Layer
+    WebServer["Apache/Nginx + PHP-FPM (Веб-сервер / Web Server)"]:::server
 
-    %% Application Layer
-    subgraph "Application Layer"
-        AuthModule["Auth & Security Module"]:::module
-        CourseModule["Course & Module Module"]:::module
-        QuizModule["Quiz & Exam Module"]:::module
-        DocModule["Document Upload & Approval Module"]:::module
-        AdminModule["Admin Dashboard Module"]:::module
-        TeacherModule["Teacher Dashboard Module"]:::module
+    %% Прикладной слой / Application Layer
+    subgraph "Прикладной слой / Application Layer"
+        AuthModule["Модуль аутентификации и безопасности / Auth & Security Module"]:::module
+        CourseModule["Модуль курсов и модулей / Course & Module Module"]:::module
+        QuizModule["Модуль тестов и экзаменов / Quiz & Exam Module"]:::module
+        DocModule["Загрузка и утверждение документов / Document Upload & Approval"]:::module
+        AdminModule["Админ-панель / Admin Dashboard"]:::module
+        TeacherModule["Панель преподавателя / Teacher Dashboard"]:::module
     end
 
-    %% Data Layer
-    subgraph "Data Layer"
-        DB["Relational Database"]:::database
-        FileStore["File Storage (/uploads)"]:::filesystem
+    %% Слой данных / Data Layer
+    subgraph "Слой данных / Data Layer"
+        DB["Реляционная база данных / Relational Database"]:::database
+        FileStore["Хранилище файлов (/uploads) / File Storage"]:::filesystem
     end
 
-    %% External Services
-    subgraph "External Services"
-        EmailService["SMTP / Email Service"]:::external
+    %% Внешние сервисы / External Services
+    subgraph "Внешние сервисы / External Services"
+        EmailService["SMTP / Почтовый сервис / Email Service"]:::external
     end
 
-    %% Connections
+    %% Связи / Connections
     Browser --> WebServer
     WebServer --> AuthModule
     WebServer --> CourseModule
@@ -146,13 +146,14 @@ flowchart TD
 
     AuthModule --> EmailService
 
-    %% Styles
+    %% Стили / Styles
     classDef frontend fill:#AED6F1,stroke:#1F618D,color:#1F618D
     classDef server fill:#ABEBC6,stroke:#196F3D,color:#196F3D
     classDef module fill:#F9E79F,stroke:#B7950B,color:#B7950B
     classDef database fill:#F5B7B1,stroke:#CB4335,color:#CB4335
     classDef filesystem fill:#D5DBDB,stroke:#424949,color:#424949
     classDef external fill:#D7BDE2,stroke:#6C3483,color:#6C3483
+
 
 ```
 ### 🔗 Основные модули
